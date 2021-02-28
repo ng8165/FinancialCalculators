@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex">
+        <title>Tax-Equivalent Yield Calculator</title>
+        <link type="text/css" rel="stylesheet" href="style.css"/>
+        <link rel="icon" type="ico" href="favicon.png">
+    </head>
+    <body>
+        <h1>Tax-Equivalent Yield Calculator</h1>
+        <h3>Made by Nelson Gou</h3>
+
+        <div id="input">
+            <p>Tax-Free Yield:
+                <input type="text" id="taxFree" size="5" value="5%"/>
+            </p>
+            
+            <p>Federal Marginal Tax Bracket:
+                <input type="text" id="fedBracket" size="5" value="5%"/>
+            </p>
+            
+            <p>State Marginal Tax Bracket:
+                <input type="text" id="stateBracket" size="5" value="7%"/>
+            </p>
+            
+            <button id="submit">Submit</button>
+        </div>
+        
+        <script type="text/javascript" src="calculator.js"></script>
+        
+        <div id="result" style="display:none">
+            <p id="summary"></p>
+            
+            <ul>
+                <li id="taxFreeResult">blah</li>
+                <li id="fedTaxExempt">blah</li>
+                <li id="fedStateTaxExempt">blah</li>
+            </ul>
+        </div>
+    </body>
+</html>
