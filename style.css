@@ -27,13 +27,3 @@ input, button {
     text-align: center;
     display: block;
 }
-
-.subtitle .author { 
-    display: none;
-}
-.subtitle:hover .madefor {
-    display: none;
-}
-.subtitle:hover .author {
-    display: inline;
-}
