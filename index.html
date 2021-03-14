@@ -12,38 +12,38 @@
                 <li>Made by Nelson Gou</li>
             </ul>
         </nav>
-        
+
         <h1>Tax-Equivalent Yield Calculator</h1>
 
         <div id="input">
             <p>Tax-Free Yield:
                 <input type="text" id="taxFree" size="5" value="5%"/>
             </p>
-            
+
             <p>Federal Marginal Tax Bracket:
                 <input type="text" id="fedBracket" size="5" value="5%"/>
             </p>
-            
+
             <p>State Marginal Tax Bracket:
                 <input type="text" id="stateBracket" size="5" value="7%"/>
             </p>
-            
+
             <button id="submit">Submit</button>
         </div>
-        
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
         <script type="text/javascript" src="calculator.js"></script>
-        
+
         <div id="result" style="display:none">
             <p id="summary"></p>
-            
+
             <ul>
                 <li id="taxFreeResult"></li>
                 <li id="fedTaxExempt"></li>
                 <li id="fedStateTaxExempt"></li>
             </ul>
         </div>
-        
+
         <div id="chart"></div>
     </body>
 </html>
