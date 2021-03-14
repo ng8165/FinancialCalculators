@@ -1,3 +1,9 @@
+document.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+        document.getElementById("submit").click();
+    }
+});
+
 document.getElementById("submit").onclick = function() {
     var taxFree = document.getElementById("taxFree").value;
     var fedBracket = document.getElementById("fedBracket").value;
@@ -113,9 +119,3 @@ document.getElementById("submit").onclick = function() {
         }
     }
 }
-
-document.addEventListener("keyup", function(event) {
-    if (event.keyCode === 13) {
-        document.getElementById("submit").click();
-    }
-});
