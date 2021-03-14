@@ -11,7 +11,7 @@ document.getElementById("submit").onclick = function() {
             taxFree = taxFree.substring(0, taxFree.length-1);
         }
         taxFree = parseFloat(taxFree);
-                
+
         if (fedBracket.charAt(taxFree.length-1) == "%") {
             fedBracket = fedBracket.substring(0, fedBracket.length-1);
         }
@@ -53,8 +53,8 @@ document.getElementById("submit").onclick = function() {
 
             document.getElementById("chart").innerHTML = '<canvas id="myChart"></canvas>';
             let myChart = document.getElementById("myChart").getContext("2d");
-            myChart.canvas.parentNode.style.width = '700px';
-            myChart.canvas.parentNode.style.height = '350px';
+            myChart.canvas.parentNode.style.width = '800px';
+            myChart.canvas.parentNode.style.height = '400px';
             let barChart = new Chart(myChart, {
                 type: "bar", // bar, horizontalBar, pie, line, doughnut, radar, polarArea
                 data: {
