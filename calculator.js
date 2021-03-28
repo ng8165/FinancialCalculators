@@ -78,6 +78,7 @@ function generateChart(taxFree, fedTaxExempt, fedStateTaxExempt) {
     Chart.defaults.global.defaultFontColor = "#000000";
 
     document.getElementById("chart").setAttribute("style", "visibility:visible");
+    document.getElementById("chart").innerHTML = '<canvas id="myChart"></canvas>'; // reset canvas for every generation
 
     let myChart = document.getElementById("myChart").getContext("2d");
     myChart.canvas.parentNode.style.width = '700px';
@@ -111,7 +112,7 @@ function generateChart(taxFree, fedTaxExempt, fedStateTaxExempt) {
             scales: {
                 yAxes: [{
                     ticks: {
-                        callback: function(value, index, values) {
+                        callback: function(value) {
                             return value + "%";
                         },
                         beginAtZero: true
