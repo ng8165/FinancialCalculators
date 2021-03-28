@@ -10,8 +10,8 @@ document.getElementById("submit").onclick = function() {
     var fedBracket = document.getElementById("fedBracket").value;
     var stateBracket = document.getElementById("stateBracket").value;
 
+    // check if any fields are empty
     if (taxFree == "" || fedBracket == "" || stateBracket == "") {
-        // inputs are incomplete
         alert("Please enter all fields.");
         return;
     }
@@ -43,7 +43,7 @@ document.getElementById("submit").onclick = function() {
         return;
     }
 
-    // add (and calculate if necessary) the results and add to div
+    // calculate new results and add them to web page
     document.getElementById("taxFreeResult").innerHTML = "Tax Free: " + taxFree.toFixed(3) + "%";
 
     fedTaxExempt = taxFree*100/(100-fedTaxExempt);
@@ -56,6 +56,7 @@ document.getElementById("submit").onclick = function() {
 
     document.getElementById("result").setAttribute("style", "visibility: visible");
 
+    // generate the chart
     generateChart(taxFree.toFixed(3), fedTaxExempt.toFixed(3), fedStateTaxExempt.toFixed(3));
 }
 
@@ -85,7 +86,7 @@ function generateChart(taxFree, fedTaxExempt, fedStateTaxExempt) {
     myChart.canvas.parentNode.style.height = '350px';
 
     new Chart(myChart, {
-        type: "bar", // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+        type: "bar",
         data: {
             labels: ["Tax Free", "Federal Tax Exempt", "Federal & State Tax Exempt"],
             datasets: [{
