@@ -16,37 +16,37 @@ function parseNumber(percentage) {
 }
 
 function resetInputs() {
-    document.getElementById("taxFree").value = "5%";
+    document.getElementById("taxExempt").value = "5%";
     document.getElementById("fedBracket").value = "7%";
     document.getElementById("stateBracket").value = "7%";
 }
 
 function generateResults() {
-    var taxFree = document.getElementById("taxFree").value;
+    var taxExempt = document.getElementById("taxExempt").value;
     var fedBracket = document.getElementById("fedBracket").value;
     var stateBracket = document.getElementById("stateBracket").value;
 
     // check if any fields are empty
-    if (taxFree == "" || fedBracket == "" || stateBracket == "") {
+    if (taxExempt == "" || fedBracket == "" || stateBracket == "") {
         alert("Please enter all fields.");
         return;
     }
 
     // remove % character and parse into a number
-    taxFree = parseNumber(taxFree);
+    taxExempt = parseNumber(taxExempt);
     var fedTaxExempt = parseNumber(fedBracket);
     var fedStateTaxExempt = parseNumber(stateBracket);
 
     // check if any parses failed
-    if (isNaN(taxFree) || isNaN(fedTaxExempt) || isNaN(fedStateTaxExempt)) {
+    if (isNaN(taxExempt) || isNaN(fedTaxExempt) || isNaN(fedStateTaxExempt)) {
         alert("Please remove any letters or special characters in the fields.");
         resetInputs();
         return;
     }
 
     // restrictions for size of the inputs
-    if (taxFree < -12 || taxFree > 12) {
-        alert("The tax-free yield must be between -12% and 12%.");
+    if (taxExempt < -12 || taxExempt > 12) {
+        alert("The tax-exempt yield must be between -12% and 12%.");
         resetInputs();
         return;
     } else if (fedTaxExempt < 0 || fedTaxExempt > 75) {
@@ -60,23 +60,23 @@ function generateResults() {
     }
 
     // calculate new results and add them to web page
-    document.getElementById("taxFreeResult").innerHTML = "Tax Free: " + taxFree.toFixed(3) + "%";
+    document.getElementById("taxExemptResult").innerHTML = "Tax Exempt: " + taxExempt.toFixed(3) + "%";
 
-    fedTaxExempt = taxFree*100/(100-fedTaxExempt);
+    fedTaxExempt = taxExempt*100/(100-fedTaxExempt);
     document.getElementById("fedTaxExempt").innerHTML = "Federal Tax Exempt: " + fedTaxExempt.toFixed(3) + "%";
 
     fedStateTaxExempt = fedTaxExempt*100/(100-fedStateTaxExempt);
     document.getElementById("fedStateTaxExempt").innerHTML = "Federal & State Tax Exempt: " + fedStateTaxExempt.toFixed(3) + "%";
 
-    document.getElementById("summary").innerHTML = "A " + taxFree.toFixed(3) + "% tax-free return is equivalent to a tax-equivalent yield of " + fedStateTaxExempt.toFixed(3) + "%.";
+    document.getElementById("summary").innerHTML = "A " + taxExempt.toFixed(3) + "% tax-exempt return is equivalent to a tax-equivalent yield of " + fedStateTaxExempt.toFixed(3) + "%.";
 
     document.getElementById("result").setAttribute("style", "visibility: visible");
 
     // generate the chart
-    generateChart(taxFree.toFixed(3), fedTaxExempt.toFixed(3), fedStateTaxExempt.toFixed(3));
+    generateChart(taxExempt.toFixed(3), fedTaxExempt.toFixed(3), fedStateTaxExempt.toFixed(3));
 }
 
-function generateChart(taxFree, fedTaxExempt, fedStateTaxExempt) {
+function generateChart(taxExempt, fedTaxExempt, fedStateTaxExempt) {
     Chart.defaults.global.defaultFontFamily = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
     Chart.defaults.global.defaultFontColor = "#000000";
 
@@ -90,10 +90,10 @@ function generateChart(taxFree, fedTaxExempt, fedStateTaxExempt) {
     new Chart(myChart, {
         type: "bar",
         data: {
-            labels: ["Tax Free", "Federal Tax Exempt", "Federal & State Tax Exempt"],
+            labels: ["Tax Exempt", "Federal Tax Exempt", "Federal & State Tax Exempt"],
             datasets: [{
                 data: [
-                    taxFree,
+                    taxExempt,
                     fedTaxExempt,
                     fedStateTaxExempt
                 ],
