@@ -21,18 +21,25 @@ document.getElementById("submit").onclick = function() {
     var fedTaxExempt = parseNumber(fedBracket);
     var fedStateTaxExempt = parseNumber(stateBracket);
 
+    // check if any parses failed
+    if (isNaN(taxFree) || isNaN(fedTaxExempt) || isNaN(fedStateTaxExempt)) {
+        alert("Please remove any letters or special characters in the fields.");
+        resetInputs();
+        return;
+    }
+
     // restrictions for size of the inputs
     if (taxFree < -12 || taxFree > 12) {
         alert("The tax-free yield must be between -12% and 12%.");
-        document.getElementById("taxFree").value = "5%";
+        resetInputs();
         return;
     } else if (fedTaxExempt < 0 || fedTaxExempt > 75) {
         alert("The federal marginal tax bracket must be between 0% and 75%.");
-        document.getElementById("fedBracket").value = "7%";
+        resetInputs();
         return;
     } else if (fedStateTaxExempt < 0 || fedStateTaxExempt > 75) {
         alert("The state marginal tax bracket must be between 0% and 75%.");
-        document.getElementById("stateBracket").value = "7%";
+        resetInputs();
         return;
     }
 
@@ -58,6 +65,12 @@ function parseNumber(percentage) {
     } else {
         return parseFloat(percentage);
     }
+}
+
+function resetInputs() {
+    document.getElementById("taxFree").value = "5%";
+    document.getElementById("fedBracket").value = "7%";
+    document.getElementById("stateBracket").value = "7%";
 }
 
 function generateChart(taxFree, fedTaxExempt, fedStateTaxExempt) {
