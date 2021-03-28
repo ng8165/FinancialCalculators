@@ -1,11 +1,27 @@
 document.addEventListener("keyup", function(event) {
     // if enter key is pressed, simulate a submit button click to initiate calculations
-    if (event.keyCode === 13) {
+    if (event.code == "Enter") {
         document.getElementById("submit").click();
     }
 });
 
-document.getElementById("submit").onclick = function() {
+document.getElementById("submit").onclick = function() {generateResults()};
+
+function parseNumber(percentage) {
+    if (percentage.charAt(percentage.length-1) == '%') {
+        return parseFloat(percentage.substring(0, percentage.length-1));
+    } else {
+        return parseFloat(percentage);
+    }
+}
+
+function resetInputs() {
+    document.getElementById("taxFree").value = "5%";
+    document.getElementById("fedBracket").value = "7%";
+    document.getElementById("stateBracket").value = "7%";
+}
+
+function generateResults() {
     var taxFree = document.getElementById("taxFree").value;
     var fedBracket = document.getElementById("fedBracket").value;
     var stateBracket = document.getElementById("stateBracket").value;
@@ -58,20 +74,6 @@ document.getElementById("submit").onclick = function() {
 
     // generate the chart
     generateChart(taxFree.toFixed(3), fedTaxExempt.toFixed(3), fedStateTaxExempt.toFixed(3));
-}
-
-function parseNumber(percentage) {
-    if (percentage.charAt(percentage.length-1) == '%') {
-        return parseFloat(percentage.substring(0, percentage.length-1));
-    } else {
-        return parseFloat(percentage);
-    }
-}
-
-function resetInputs() {
-    document.getElementById("taxFree").value = "5%";
-    document.getElementById("fedBracket").value = "7%";
-    document.getElementById("stateBracket").value = "7%";
 }
 
 function generateChart(taxFree, fedTaxExempt, fedStateTaxExempt) {
