@@ -16,9 +16,9 @@ function parseNumber(percentage) {
 }
 
 function resetInputs() {
-    document.getElementById("taxExempt").value = "5%";
-    document.getElementById("fedBracket").value = "7%";
-    document.getElementById("stateBracket").value = "7%";
+    document.getElementById("taxExempt").value = "3%";
+    document.getElementById("fedBracket").value = "35%";
+    document.getElementById("stateBracket").value = "9.3%";
 }
 
 function generateResults() {
