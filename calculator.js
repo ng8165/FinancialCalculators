@@ -23,22 +23,24 @@ function resetInputs() {
 
 function generateResults() {
     var taxExempt = document.getElementById("taxExempt").value;
+    var shortCapGain = document.getElementById("shortCapGain").value;
     var fedBracket = document.getElementById("fedBracket").value;
     var stateBracket = document.getElementById("stateBracket").value;
 
     // check if any fields are empty
-    if (taxExempt == "" || fedBracket == "" || stateBracket == "") {
+    if (taxExempt == "" || shortCapGain == "" || fedBracket == "" || stateBracket == "") {
         alert("Please enter all fields.");
         return;
     }
 
     // remove % character and parse into a number
     taxExempt = parseNumber(taxExempt);
+    shortCapGain = parseNumber(shortCapGain);
     var fedTaxExempt = parseNumber(fedBracket);
     var fedStateTaxExempt = parseNumber(stateBracket);
 
     // check if any parses failed
-    if (isNaN(taxExempt) || isNaN(fedTaxExempt) || isNaN(fedStateTaxExempt)) {
+    if (isNaN(taxExempt) || isNaN(shortCapGain) || isNaN(fedTaxExempt) || isNaN(fedStateTaxExempt)) {
         alert("Please remove any letters or special characters in the fields.");
         resetInputs();
         return;
@@ -60,23 +62,28 @@ function generateResults() {
     }
 
     // calculate new results and add them to web page
-    document.getElementById("taxExemptResult").innerHTML = "Tax Exempt: " + taxExempt.toFixed(3) + "%";
+    document.getElementById("taxExemptResult").innerHTML = "Tax Exempt: " + taxExempt.toFixed(2) + "%";
+
+    var grossReturn = taxExempt + shortCapGain;
+    document.getElementById("shortCapGainResult").innerHTML = "Short Term Capital Gain: " + shortCapGain.toFixed(2) + "%";
 
     fedTaxExempt = taxExempt*100/(100-fedTaxExempt);
-    document.getElementById("fedTaxExempt").innerHTML = "Federal Tax Exempt: " + fedTaxExempt.toFixed(3) + "%";
+    var totalTaxEquivalentYield = fedTaxExempt + shortCapGain;
+    document.getElementById("totalTaxEquivalentYield").innerHTML = "Total Tax Equivalent Yield: " + fedTaxExempt.toFixed(2) + "% + " + shortCapGain.toFixed(2) + "% = " + totalTaxEquivalentYield.toFixed(2) + "%";
 
     fedStateTaxExempt = fedTaxExempt*100/(100-fedStateTaxExempt);
-    document.getElementById("fedStateTaxExempt").innerHTML = "Federal & State Tax Exempt: " + fedStateTaxExempt.toFixed(3) + "%";
+    var fedStateTaxExemptResult = fedStateTaxExempt + shortCapGain;
+    document.getElementById("fedStateTaxExempt").innerHTML = "Federal & State Tax Exempt: " + fedStateTaxExempt.toFixed(2) + "% + " + shortCapGain.toFixed(2) + "% = " + fedStateTaxExemptResult.toFixed(2) + "%";
 
-    document.getElementById("summary").innerHTML = "A " + taxExempt.toFixed(3) + "% tax-exempt return is equivalent to a tax-equivalent yield of " + fedStateTaxExempt.toFixed(3) + "%.";
+    document.getElementById("summary").innerHTML = "A " + taxExempt.toFixed(2) + "% tax-exempt return is equivalent to a tax-equivalent yield of " + fedStateTaxExempt.toFixed(2) + "%.";
 
     document.getElementById("result").setAttribute("style", "visibility: visible");
 
     // generate the chart
-    generateChart(taxExempt.toFixed(3), fedTaxExempt.toFixed(3), fedStateTaxExempt.toFixed(3));
+    generateChart(grossReturn.toFixed(2), totalTaxEquivalentYield.toFixed(2), fedStateTaxExemptResult.toFixed(2));
 }
 
-function generateChart(taxExempt, fedTaxExempt, fedStateTaxExempt) {
+function generateChart(grossReturn, totalTaxEquivalentYield, fedStateTaxExemptResult) {
     Chart.defaults.global.defaultFontFamily = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
     Chart.defaults.global.defaultFontColor = "#000000";
 
@@ -90,12 +97,12 @@ function generateChart(taxExempt, fedTaxExempt, fedStateTaxExempt) {
     new Chart(myChart, {
         type: "bar",
         data: {
-            labels: ["Tax Exempt", "Federal Tax Exempt", "Federal & State Tax Exempt"],
+            labels: ["Gross Return", "Total Tax Equivalent Yield", "Federal & State Tax Exempt"],
             datasets: [{
                 data: [
-                    taxExempt,
-                    fedTaxExempt,
-                    fedStateTaxExempt
+                    grossReturn,
+                    totalTaxEquivalentYield,
+                    fedStateTaxExemptResult
                 ],
                 backgroundColor: [
                     "rgba(134, 177, 219, 1)",
