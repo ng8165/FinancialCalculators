@@ -18,24 +18,24 @@
         <h1>Tax-Equivalent Yield Calculator</h1>
 
         <div id="input">
-            <p>Tax-Exempt Yield:
+            <p>
+                <label for="taxExempt">Tax-Exempt Yield</label>:
                 <input type="text" id="taxExempt" size="5" value="3%"/>
-                <label for="taxExempt">Tax-Exempt Yield</label>
             </p>
 
-            <p>Short Term Capital Gain:
+            <p>
+                <label for="shortCapGain">Short Term Capital Gain</label>:
                 <input type="text" id="shortCapGain" size="5" value="2%"/>
-                <label for="shortCapGain">Short Term Capital Gain</label>
             </p>
 
-            <p>Federal Marginal Tax Bracket:
+            <p>
+                <label for="fedBracket">Federal Marginal Tax Bracket</label>:
                 <input type="text" id="fedBracket" size="5" value="35%"/>
-                <label for="fedBracket">Federal Marginal Tax Bracket</label>
             </p>
 
-            <p>State Marginal Tax Bracket:
+            <p>
+                <label for="stateBracket">State Marginal Tax Bracket</label>:
                 <input type="text" id="stateBracket" size="5" value="9.3%"/>
-                <label for="stateBracket">State Marginal Tax Bracket</label>
             </p>
 
             <button id="submit" onclick="generateResults()">Submit</button>
