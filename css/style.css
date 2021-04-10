@@ -57,8 +57,11 @@ input, button {
     height: auto;
 }
 
-.subtitle {
-    font-weight: bold;
-    font-size: 20px;
-    margin-top: -10px;
+.footer {
+    font-size: 12px;
+    text-align: center;
+}
+
+.link:hover {
+    color: red;
 }
