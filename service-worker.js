@@ -6,8 +6,9 @@ const cachedURLs = [
   "/tax-yield-calc/index.html",
   "/tax-yield-calc/css/style.css",
   "/tax-yield-calc/js/app.js",
-  "/tax-yield-calc/images/favicon-192.png",
-  "/tax-yield-calc/images/favicon-512.png",
+  "/tax-yield-calc/images/favicon.png",
+  "/tax-yield-calc/images/icon-192.png",
+  "/tax-yield-calc/images/icon-512.png",
 ];
 
 self.addEventListener('install', function(event) {
