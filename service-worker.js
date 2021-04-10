@@ -1,6 +1,6 @@
 // Code from https://developers.google.com/web/fundamentals/primers/service-workers
 
-const calculatorCa = 'tax-yield-calc-v2';
+const calculatorCache = 'tax-yield-calc-v2';
 const cachedURLs = [
   "/tax-yield-calc/",
   "/tax-yield-calc/index.html",
