@@ -12,17 +12,7 @@
         <link rel="icon" type="ico" href="images/favicon-512.png">
         <link rel="apple-touch-icon" href="images/favicon-192.png">
         <link rel="apple-touch-icon" href="images/favicon-512.png">
-        <script type="text/javascript">
-            if ('serviceWorker' in navigator) {
-                window.addEventListener('load', function() {
-                    navigator.serviceWorker.register('/tax-yield-calc/service-worker.js').then(function(registration) {
-                        console.log('[ServiceWorker] Registration Successful! Scope: ', registration.scope);
-                    }, function(err) {
-                        console.log('[ServiceWorker] Registration Failed... Error: ', err);
-                    });
-                });
-            }
-        </script>
+        <script src="js/app.js"></script>
     </head>
     <body>
         <h1>Tax-Equivalent Yield Calculator</h1>
@@ -47,7 +37,7 @@
             <button id="submit">Submit</button>
         </div>
 
-        <script type="text/javascript" src="js/app.js"></script>
+        <script type="text/javascript" src="js/calculator.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
 
         <div id="result" style="display: none;">
