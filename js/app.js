@@ -1,3 +1,4 @@
+// register service worker
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
         navigator.serviceWorker.register('/tax-yield-calc/service-worker.js').then(function(registration) {
@@ -9,14 +10,16 @@ if ('serviceWorker' in navigator) {
 }
 
 document.addEventListener("keyup", function(event) {
-    // if enter key is pressed, simulate a submit button click to initiate calculations
+    // if enter key is pressed (same as pressing submit), generate results
     if (event.code == "Enter") {
         generateResults();
     }
 });
 
 function parseNumber(percentage) {
+    // parse the number into a float
     if (percentage.charAt(percentage.length-1) == '%') {
+        // remove % if necessary
         return parseFloat(percentage.substring(0, percentage.length-1));
     } else {
         return parseFloat(percentage);
@@ -47,7 +50,7 @@ function generateResults() {
     var fedTaxExempt = parseNumber(fedBracket);
     var fedStateTaxExempt = parseNumber(stateBracket);
 
-    // check if any parses failed
+    // check if any parses failed (returns NaN if failed)
     if (isNaN(taxExempt) || isNaN(shortCapGain) || isNaN(fedTaxExempt) || isNaN(fedStateTaxExempt)) {
         alert("Please remove any letters or special characters in the fields.");
         resetInputs();
@@ -81,7 +84,7 @@ function generateChart(grossReturn, totalTaxEquivalentYield, fedStateTaxExemptRe
     Chart.defaults.global.defaultFontColor = "#000000";
 
     document.getElementById("chart").setAttribute("style", "visibility:visible");
-    document.getElementById("chart").innerHTML = '<canvas id="myChart"></canvas>'; // reset canvas for every generation
+    document.getElementById("chart").innerHTML = '<canvas id="myChart"></canvas>'; // reset canvas for every generation so graphs don't overlap
 
     let myChart = document.getElementById("myChart").getContext("2d");
     myChart.canvas.parentNode.style.width = '700px';
