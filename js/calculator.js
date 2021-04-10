@@ -5,8 +5,6 @@ document.addEventListener("keyup", function(event) {
     }
 });
 
-document.getElementById("submit").onclick = function() {generateResults()};
-
 function parseNumber(percentage) {
     if (percentage.charAt(percentage.length-1) == '%') {
         return parseFloat(percentage.substring(0, percentage.length-1));
