@@ -1,6 +1,6 @@
 // Code from https://developers.google.com/web/fundamentals/primers/service-workers
 
-const calculatorCache = 'tax-yield-calc-v2';
+const calculatorCache = 'tax-yield-calc-v2.1';
 const cachedURLs = [
   "/tax-yield-calc/",
   "/tax-yield-calc/index.html",
@@ -38,7 +38,7 @@ self.addEventListener('fetch', function(event) {
 });
 
 self.addEventListener('activate', function(event) {
-  var cacheAllowlist = ['tax-yield-calc-v2'];
+  var cacheAllowlist = ['tax-yield-calc-v2.1'];
 
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
