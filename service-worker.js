@@ -41,7 +41,7 @@ self.addEventListener('fetch', function(event) {
 });
 
 self.addEventListener('activate', function(event) {
-  var cacheAllowlist = ['tax-yield-calc-v2.1'];
+  var cacheAllowlist = ['tax-yield-calc-v2.2'];
 
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
