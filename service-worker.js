@@ -1,6 +1,6 @@
 // Code from https://developers.google.com/web/fundamentals/primers/service-workers
 
-const calculatorCache = 'tax-yield-calc-v2.1';
+const calculatorCache = 'tax-yield-calc-v2.2';
 const cachedURLs = [
   "/tax-yield-calc/",
   "/tax-yield-calc/index.html",
@@ -9,6 +9,7 @@ const cachedURLs = [
   "/tax-yield-calc/images/favicon.png",
   "/tax-yield-calc/images/icon-192.png",
   "/tax-yield-calc/images/icon-512.png",
+  "/tax-yield-calc/images/panda.png",
 ];
 
 self.addEventListener('install', function(event) {
