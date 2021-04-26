@@ -1,6 +1,6 @@
 {
-  "short_name": "Calculator",
-  "name": "Tax-Equivalent Yield Calculator",
+  "short_name": "Financial Calculators",
+  "name": "Financial Calculators",
   "icons": [
     {
       "src": "images/favicon.png",
@@ -20,12 +20,12 @@
       "purpose": "maskable"
     }
   ],
-  "start_url": "/tax-yield-calc/",
+  "start_url": "/FinancialCalculators/",
   "background_color": "#d8cceb",
   "display": "minimal-ui",
-  "scope": "/tax-yield-calc/",
+  "scope": "/FinancialCalculators/",
   "orientation": "landscape",
   "theme_color": "white",
   "categories": ["utilities", "finance"],
-  "description": "Tax-Equivalent Yield Calculator made by Nelson Gou"
+  "description": "Financial Calculators made by Nelson Gou"
 }
