@@ -1,15 +1,16 @@
 // Code from https://developers.google.com/web/fundamentals/primers/service-workers
 
-const calculatorCache = 'tax-yield-calc-v2.2';
+const calculatorCache = 'FinancialCalculatorsCache-v2.3';
 const cachedURLs = [
-  "/tax-yield-calc/",
-  "/tax-yield-calc/index.html",
-  "/tax-yield-calc/css/style.css",
-  "/tax-yield-calc/js/app.js",
-  "/tax-yield-calc/images/favicon.png",
-  "/tax-yield-calc/images/icon-192.png",
-  "/tax-yield-calc/images/icon-512.png",
-  "/tax-yield-calc/images/panda.png",
+  "/FinancialCalculators/",
+  "/FinancialCalculators/index.html",
+  "/FinancialCalculators/css/style.css",
+  "/FinancialCalculators/js/app.js",
+  "/FinancialCalculators/images/favicon.png",
+  "/FinancialCalculators/images/icon-192.png",
+  "/FinancialCalculators/images/icon-512.png",
+  "/FinancialCalculators/images/pandas/panda-drawing-1.png",
+  "/FinancialCalculators/images/pandas/panda-drawing-2.png"
 ];
 
 self.addEventListener('install', function(event) {
@@ -41,7 +42,7 @@ self.addEventListener('fetch', function(event) {
 });
 
 self.addEventListener('activate', function(event) {
-  var cacheAllowlist = ['tax-yield-calc-v2.2'];
+  var cacheAllowlist = ['FinancialCalculatorsCache-v2.3'];
 
   event.waitUntil(
     caches.keys().then(function(cacheNames) {

@@ -71,7 +71,12 @@ footer {
     color: red;
 }
 
-.footerimage {
+.footerimageleft {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+.footerimageright {
     position: fixed;
     bottom: 0;
     right: 0;
