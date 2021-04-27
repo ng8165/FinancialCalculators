@@ -81,3 +81,9 @@ footer {
     bottom: 0;
     right: 0;
 }
+
+.currentpage {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
+}

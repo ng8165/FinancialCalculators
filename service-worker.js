@@ -1,11 +1,14 @@
 // Code from https://developers.google.com/web/fundamentals/primers/service-workers
 
-const calculatorCache = 'FinancialCalculatorsCache-v2.3';
+const calculatorCache = 'FinancialCalculatorsCache-v3.0';
 const cachedURLs = [
   "/FinancialCalculators/",
-  "/FinancialCalculators/index.html",
+  "/FinancialCalculators/teycalc.html",
+  "/FinancialCalculators/mortgagecalc.html",
   "/FinancialCalculators/css/style.css",
   "/FinancialCalculators/js/app.js",
+  "/FinancialCalculators/js/teycalc.js",
+  "/FinancialCalculators/js/mortgagecalc.js",
   "/FinancialCalculators/images/favicon.png",
   "/FinancialCalculators/images/icon-192.png",
   "/FinancialCalculators/images/icon-512.png",
@@ -42,7 +45,7 @@ self.addEventListener('fetch', function(event) {
 });
 
 self.addEventListener('activate', function(event) {
-  var cacheAllowlist = ['FinancialCalculatorsCache-v2.3'];
+  var cacheAllowlist = ['FinancialCalculatorsCache-v3.0'];
 
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
