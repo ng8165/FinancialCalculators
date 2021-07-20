@@ -115,10 +115,18 @@ nav .hamburgermenu:hover {
     cursor: pointer;
 }
 
+nav ul .currentpageshort {
+    display: none;
+}
+
 @media screen and (max-width: 640px) {
     nav ul .navli {
         display: none;
         padding: 0px;
+    }
+
+    nav ul .currentpage, nav ul .currentpageshort {
+        display: block;
     }
 
     nav .hamburgermenu {

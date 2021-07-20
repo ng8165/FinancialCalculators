@@ -33,5 +33,5 @@ function saveSettings() {
         localStorage.setItem("pandaShow", "false");
     }
 
-    document.getElementById("saved").setAttribute("style", "visibility: visible;")
+    location.reload();
 }
