@@ -19,11 +19,17 @@
                 window.location = localStorage.getItem("defaultPage") + ".html";
             }
 
-            function saveDefaultPage() {
+            function saveSettings() {
                 if (document.getElementById("teycalc").checked) {
                     localStorage.setItem("defaultPage", "teycalc");
                 } else {
                     localStorage.setItem("defaultPage", "mortgagecalc");
+                }
+
+                if (document.getElementById("pandayes").checked) {
+                    localStorage.setItem("pandaShow", "true");
+                } else {
+                    localStorage.setItem("pandaShow", "false");
                 }
 
                 window.location = localStorage.getItem("defaultPage") + ".html";
@@ -37,6 +43,12 @@
 
         <input type="radio" id="teycalc" name="pageselector" value="teycalc"> <label for="teycalc">Tax-Equivalent Yield Calculator</label><br>
         <input type="radio" id="mortgagecalc" name="pageselector" value="mortgagecalc"> <label for="mortgagecalc">Mortgage Calculator</label><br><br>
-        <button id="submitChooseDefaultPage" onclick="saveDefaultPage()">Submit</button>
+
+        <p>Please also choose whether you want the panda to show or not.</p>
+
+        <input type="radio" id="pandayes" name="panda" value="pandayes"> <label for="pandayes">Yes</label><br>
+        <input type="radio" id="pandano" name="panda" value="pandayes"> <label for="pandayes">No</label><br><br>
+
+        <button id="submitChooseDefaultPage" onclick="saveSettings()">Submit</button>
     </body>
 </html>

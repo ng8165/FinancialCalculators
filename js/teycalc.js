@@ -69,7 +69,7 @@ function generateResults() {
 }
 
 function generateChart(grossReturn, totalTaxEquivalentYield, fedStateTaxExemptResult) {
-    Chart.defaults.global.defaultFontFamily = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
+    Chart.defaults.global.defaultFontFamily = '-apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
     Chart.defaults.global.defaultFontColor = "#000000";
 
     document.getElementById("chart").setAttribute("style", "visibility:visible");
