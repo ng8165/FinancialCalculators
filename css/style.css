@@ -191,4 +191,6 @@ footer {
     position: fixed;
     bottom: 0;
     right: 0;
+    width: 60%;
+    max-width: 320px;
 }
