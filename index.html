@@ -15,7 +15,7 @@
         <script>
             const localStorage = window.localStorage;
             
-            if (localStorage.getItem("defaultPage") != null) {
+            if (localStorage.getItem("defaultPage") != null && localStorage.getItem("pandaShow") != null) {
                 window.location = localStorage.getItem("defaultPage") + ".html";
             }
 
@@ -37,7 +37,7 @@
         </script>
     </head>
     <body>
-        <h1>Financial Calculators</h1>
+        <h1 class="sitetitle">Vivian's Financial Calculators</h1>
 
         <p>Hi! Please choose a home page which you will be redirected to next time you visit this page.</p>
 

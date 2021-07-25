@@ -26,6 +26,8 @@ nav {
     font-weight: bold;
     margin-top: 16px;
     overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 nav ul {
@@ -45,7 +47,7 @@ nav li, nav .hamburgermenu {
     float: left;
 }
 
-nav li a {
+nav a {
     color: black;
     text-decoration: none;
 }
@@ -55,7 +57,7 @@ nav li:hover {
     cursor: pointer;
 }
 
-nav ul li a.currentpage {
+.currentpage, .currentpageshort {
     text-decoration: underline;
     text-underline-offset: 3px;
     text-decoration-thickness: 2px;
@@ -65,11 +67,17 @@ nav .hamburgermenu {
     margin-top: -3px;
     display: none;
     font-family: inherit;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 nav .hamburgermenu:hover {
     background-color: #be8aff;
     cursor: pointer;
+}
+
+h1 {
+    text-align: center;
 }
 
 .dropdown {
@@ -87,6 +95,8 @@ nav .hamburgermenu:hover {
     height: auto;
     width: 180px;
     display: none;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .dropdown ul {
@@ -105,7 +115,7 @@ nav .hamburgermenu:hover {
     position: relative;
 }
 
-.dropdown li a {
+.dropdown a {
     color: black;
     text-decoration: none;
 }
@@ -120,7 +130,7 @@ nav ul .currentpageshort {
 }
 
 @media screen and (max-width: 640px) {
-    nav ul .navli {
+    nav ul .navpage {
         display: none;
         padding: 0px;
     }
@@ -132,6 +142,14 @@ nav ul .currentpageshort {
     nav .hamburgermenu {
         float: right;
         display: block;
+    }
+}
+
+@media screen and (min-width: 640px) {
+    .dropdown {
+        border: 0;
+        width: 0;
+        height: 0;
     }
 }
 
