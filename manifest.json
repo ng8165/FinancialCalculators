@@ -22,7 +22,7 @@
   ],
   "start_url": "/FinancialCalculators/",
   "background_color": "#d8cceb",
-  "display": "minimal-ui",
+  "display": "standalone",
   "scope": "/FinancialCalculators/",
   "orientation": "landscape",
   "theme_color": "white",
