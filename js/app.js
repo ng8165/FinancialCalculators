@@ -17,3 +17,16 @@ function openSubNav() {
         dropdown.setAttribute("style", "display: none;");
     }
 }
+
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+        // User is signed in.
+        console.log("signed in");
+    } else {
+        // User is signed out.
+        console.log("signed out");
+        window.location = "login.html";
+    }
+}, function(error) {
+    console.log(error);
+});

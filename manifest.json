@@ -21,11 +21,11 @@
     }
   ],
   "start_url": "/FinancialCalculators/",
-  "background_color": "#d8cceb",
+  "background_color": "#a889d6",
   "display": "standalone",
   "scope": "/FinancialCalculators/",
   "orientation": "landscape",
-  "theme_color": "white",
+  "theme_color": "#a889d6",
   "categories": ["utilities", "finance"],
   "description": "Financial Calculators made by Nelson Gou"
 }

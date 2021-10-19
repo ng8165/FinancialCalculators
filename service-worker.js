@@ -1,16 +1,19 @@
 // Code from https://developers.google.com/web/fundamentals/primers/service-workers
 
-const calculatorCache = 'FinancialCalculatorsCache-v4.2.2';
+const calculatorCache = 'FinancialCalculatorsCache-v5.0';
 const cachedURLs = [
   "/FinancialCalculators/",
   "/FinancialCalculators/teycalc.html",
   "/FinancialCalculators/mortgagecalc.html",
   "/FinancialCalculators/settings.html",
+  "/FinancialCalculators/login.html",
   "/FinancialCalculators/css/style.css",
   "/FinancialCalculators/js/app.js",
-  "/FinancialCalculators/js/teycalc.js",
+  "/FinancialCalculators/js/firebase.js",
+  "/FinancialCalculators/js/login.js",
   "/FinancialCalculators/js/mortgagecalc.js",
   "/FinancialCalculators/js/settings.js",
+  "/FinancialCalculators/js/teycalc.js",
   "/FinancialCalculators/images/favicon.png",
   "/FinancialCalculators/images/icon-192.png",
   "/FinancialCalculators/images/icon-512.png",

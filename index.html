@@ -5,51 +5,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noindex, nofollow">
         <meta name="Description" content="Financial Calculators made by Nelson Gou">
-        <meta name="theme-color" content="white"/>
         <title>Financial Calculators</title>
-        <link type="text/css" rel="stylesheet" href="css/style.css"/>
         <link rel="manifest" href="manifest.json">
         <link rel="icon" type="ico" href="images/favicon.png">
         <link rel="apple-touch-icon" href="images/icon-192.png">
         <script src="js/app.js"></script>
+        <script src="js/firebase.js"></script>
         <script>
             const localStorage = window.localStorage;
             
             if (localStorage.getItem("defaultPage") != null && localStorage.getItem("pandaShow") != null) {
                 window.location = localStorage.getItem("defaultPage") + ".html";
-            }
-
-            function saveSettings() {
-                if (document.getElementById("teycalc").checked) {
-                    localStorage.setItem("defaultPage", "teycalc");
-                } else {
-                    localStorage.setItem("defaultPage", "mortgagecalc");
-                }
-
-                if (document.getElementById("pandayes").checked) {
-                    localStorage.setItem("pandaShow", "true");
-                } else {
-                    localStorage.setItem("pandaShow", "false");
-                }
-
+            } else {
+                localStorage.setItem("defaultPage", "mortgagecalc");
+                localStorage.setItem("pandaShow", "true");
                 window.location = localStorage.getItem("defaultPage") + ".html";
+                alert("Default settings have been applied. If you want to change them, you can do so in the Settings tab.")
             }
         </script>
     </head>
-    <body>
-        <h1 class="sitetitle">Vivian's Financial Calculators</h1>
-
-        <p>Hi! Please choose a home page which you will be redirected to next time you visit this page.</p>
-
-        <input type="radio" id="teycalc" name="pageselector" value="teycalc"> <label for="teycalc">Tax-Equivalent Yield Calculator</label><br>
-        <input type="radio" id="mortgagecalc" name="pageselector" value="mortgagecalc"> <label for="mortgagecalc">Mortgage Calculator</label><br><br>
-
-        <p>Please also choose whether you want the panda to show or not.</p>
-
-        <input type="radio" id="pandayes" name="panda" value="pandayes"> <label for="pandayes">Yes</label><br>
-        <input type="radio" id="pandano" name="panda" value="pandayes"> <label for="pandayes">No</label><br><br>
-        <div style="font-size: 12px;">Note: Using the Panda may cause some elements to be hidden, especially on smaller screens.</div><br>
-
-        <button id="submitChooseDefaultPage" onclick="saveSettings()">Submit</button>
-    </body>
 </html>
