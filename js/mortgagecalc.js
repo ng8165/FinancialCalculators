@@ -59,3 +59,5 @@ function generateResults() {
 
     document.getElementById("result").setAttribute("style", "visibility: visible");
 }
+
+// https://www.calculator.net/interest-rate-calculator.html?cloanamount=100000&cloanterm=30&cmonthlypay=473&x=68&y=30

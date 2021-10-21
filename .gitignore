@@ -1,1 +1,5 @@
 .DS_Store
+.vscode
+.firebaserc
+firebase.json
+.gitignore
