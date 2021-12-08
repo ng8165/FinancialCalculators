@@ -1,6 +1,7 @@
 // Code from https://developers.google.com/web/fundamentals/primers/service-workers
 
-const calculatorCache = 'FinancialCalculatorsCache-v5.0';
+const calculatorCache = 'FinancialCalculatorsCache-v5.0.1';
+
 const cachedURLs = [
   "/FinancialCalculators/",
   "/FinancialCalculators/teycalc.html",
@@ -50,7 +51,7 @@ self.addEventListener('fetch', function(event) {
 });
 
 self.addEventListener('activate', function(event) {
-  var cacheAllowlist = ['FinancialCalculatorsCache-v4.2.2'];
+  var cacheAllowlist = [calculatorCache];
 
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
