@@ -25,6 +25,10 @@
                     window.location = localStorage.getItem("defaultPage") + ".html";
                 }
             }
+
+            if (!location.href.includes("#")) {
+                openDefaultPage();
+            }
         </script>
     </head>
     <body>
