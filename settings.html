@@ -10,43 +10,61 @@
         <link rel="manifest" href="manifest.json">
         <link rel="icon" type="ico" href="images/favicon.png">
         <link rel="apple-touch-icon" href="images/icon-192.png">
-        <script src="https://kit.fontawesome.com/39776e231c.js" crossorigin="anonymous"></script>
+        <!--
         <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase.js"></script>
         <script src="js/firebase.js"></script>
         <script src="js/app.js"></script>
+        -->
     </head>
     <body>
-        <h1>Vivian's Financial Calculators</h1>
+        <header class="site-title">Vivian's Financial Calculators</header>
 
         <nav>
-            <ul>
-                <a href="teycalc.html"><li class="navpage">Tax-Equivalent Yield Calculator</li></a>
-                <a href="mortgagecalc.html"><li class="navpage">Mortgage Calculator</li></a>
-                <a href="settings.html"><li class="currentpage">Settings</li></a>
-            </ul>
+            <div class="navbar main-nav">
+                <a href="teycalc.html" class="navpage">Tax-Equivalent Yield Calculator</a>
+                <a href="mortgagecalc.html" class="navpage">Mortgage Calculator</a>
+                <a href="settings.html" class="currentpage">Settings</a>
 
-            <a class="hamburgermenu" id="hamburgermenu" onclick="openSubNav()">☰</a>
+                <a class="hamburgermenu" id="hamburgermenu" onclick="openSubNav()">☰</a>
+            </div>
+
+            <div id="dropdown" class="navbar dropdown" style="display: none;">
+                <a href="teycalc.html">TEY Calculator</a>
+                <a href="mortgagecalc.html">Mortgage Calculator</a>
+            </div>
         </nav>
 
-        <div id="dropdown" class="dropdown" style="display: none;"><ul>
-            <a href="teycalc.html"><li>Tax-Equivalent Yield Calculator</li></a>
-            <a href="mortgagecalc.html"><li>Mortgage Calculator</li></a>
-        </ul></div>
+        <section id="defaultpage">
+            <header style="margin-top: 18px;" class="header">Default Page</header>
 
-        <h3>Default Page</h3>
-        <div id="defaultpage">
-            <input type="radio" id="teycalcDef" name="defSelector"/> <label for="teycalcDef">Tax-Equivalent Yield Calculator</label><br>
-            <input type="radio" id="mortgagecalcDef" name="defSelector"/> <label for="mortgagecalcDef">Mortgage Calculator</label><br><br>
-        </div>
+            <p class="flexrow">
+                <input type="radio" id="teycalcDef" name="defSelector"/>
+                <label for="teycalcDef">Tax-Equivalent Yield Calculator</label>
+            </p>
 
-        <h3>Show Panda</h3>
-        <div id="defaultpage">
-            <input type="radio" id="pandaYes" name="pandaShow"/> <label for="pandaYes">Yes</label><br>
-            <input type="radio" id="pandaNo" name="pandaShow"/> <label for="pandaNo">No</label><br><br>
-        </div>
-        <div style="font-size: 12px;">Note: Using the Panda may cause some elements to be hidden, especially on smaller screens.</div>
+            <p class="flexrow">
+                <input type="radio" id="mortgagecalcDef" name="defSelector"/>
+                <label for="mortgagecalcDef">Mortgage Calculator</label>
+            </p>
+        </section>
+        
+        <section id="pandashow">
+            <header class="header" style="margin-bottom: 12px;">Show Panda</header>
 
-        <br><button id="save" onclick="saveSettings()">Save</button><br><br>
+            <div class="flexrow">
+                <input type="radio" id="pandaYes" name="pandaShow"/>
+                <label for="pandaYes">Yes</label>
+            </div>
+
+            <div class="flexrow">
+                <input type="radio" id="pandaNo" name="pandaShow"/>
+                <label for="pandaNo">No</label>
+            </div>
+        </section>
+
+        <em class="caption">Note: Using the Panda may cause some elements to be hidden, especially on smaller screens.</em>
+
+        <button id="save" onclick="saveSettings()">Save</button>
 
         <script src="js/settings.js"></script>
 
@@ -56,7 +74,7 @@
 
         <script>
             if (window.localStorage.getItem("pandaShow") === "true") {
-                document.getElementById("footer").innerHTML += '<img class="footerimageright" id="footerimg" src="images/pandas/panda-drawing-1.png" alt="Panda Footer Image">';
+                document.getElementById("footer").innerHTML += '<img class="footerimage" id="footerimg" src="images/pandas/panda-drawing-1.png" alt="Panda Footer Image">';
             }
         </script>
     </body>

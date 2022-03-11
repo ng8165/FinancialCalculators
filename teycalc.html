@@ -11,48 +11,33 @@
         <link rel="icon" type="ico" href="images/favicon.png">
         <link rel="apple-touch-icon" href="images/icon-192.png">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+        <!--
         <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase.js"></script>
         <script src="js/firebase.js"></script>
+        -->
         <script src="js/app.js"></script>
         <script src="js/teycalc.js"></script>
-        <style>
-            @media screen and (max-width: 640px) {
-                nav ul .navpage, nav ul .currentpage {
-                    display: none;
-                    padding: 0px;
-                }
-
-                nav ul .currentpageshort {
-                    display: block;
-                }
-
-                nav .hamburgermenu {
-                    float: right;
-                    display: block;
-                }
-            }
-        </style>
     </head>
     <body>
-        <h1>Vivian's Financial Calculators</h1>
+        <header class="site-title">Vivian's Financial Calculators</header>
 
         <nav>
-            <ul>
-                <a href="teycalc.html"><li class="currentpage">Tax-Equivalent Yield Calculator</li></a>
-                <a href="teycalc.html"><li class="currentpageshort">TEY Calculator</li></a>
-                <a href="mortgagecalc.html"><li class="navpage">Mortgage Calculator</li></a>
-                <a href="settings.html"><li class="navpage">Settings</li></a>
-            </ul>
+            <div class="navbar main-nav">
+                <a href="teycalc.html" style="text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 2px;" class="navpage">Tax-Equivalent Yield Calculator</a>
+                <a href="teycalc.html" class="currentpageshort">TEY Calculator</a>
+                <a href="mortgagecalc.html" class="navpage">Mortgage Calculator</a>
+                <a href="settings.html" class="navpage">Settings</a>
 
-            <a class="hamburgermenu" id="hamburgermenu" onclick="openSubNav()">☰</a>
+                <a class="hamburgermenu" id="hamburgermenu" onclick="openSubNav()">☰</a>
+            </div>
+
+            <div id="dropdown" class="navbar dropdown" style="display: none;">
+                <a href="mortgagecalc.html">Mortgage Calculator</a>
+                <a href="settings.html">Settings</a>
+            </div>
         </nav>
 
-        <div id="dropdown" class="dropdown" style="display: none;"><ul>
-            <a href="mortgagecalc.html"><li>Mortgage Calculator</li></a>
-            <a href="settings.html"><li>Settings</li></a>
-        </ul></div>
-
-        <div id="input">
+        <section id="input">
             <p>
                 <label for="taxExempt">Tax-Exempt Yield</label>:
                 <input type="text" id="taxExempt" size="5" value="3%"/>
@@ -74,9 +59,9 @@
             </p>
 
             <button id="submit" onclick="generateResults()">Submit</button>
-        </div>
+        </section>
 
-        <div id="result" style="display: none;">
+        <section id="result" style="display: none;">
             <p id="summary"></p>
 
             <ul>
@@ -85,18 +70,15 @@
                 <li id="totalTaxEquivalentYield"></li>
                 <li id="fedStateTaxExempt"></li>
             </ul>
-        </div>
+        </section>
 
         <div class="image" id="chart" style="display: none;"></div>
 
-        <br>
-        <footer id="footer">
-            Made by Nelson Gou. See the Github Repository at <a class="link" href="https://github.com/ng8165/FinancialCalculators" target="_blank" rel="noopener">github.com/ng8165/FinancialCalculators</a>.
-        </footer>
+        <footer id="footer">Made by Nelson Gou. Check out the <a class="link" href="https://github.com/ng8165/FinancialCalculators" target="_blank" rel="noopener">code</a> on Github.</footer>
 
         <script>
             if (window.localStorage.getItem("pandaShow") === "true") {
-                document.getElementById("footer").innerHTML += '<img class="footerimageright" id="footerimg" src="images/pandas/panda-drawing-1.png" alt="Panda Footer Image">';
+                document.getElementById("footer").innerHTML += '<img class="footerimage" id="footerimg" src="images/pandas/panda-drawing-1.png" alt="Panda Footer Image">';
             }
         </script>
     </body>

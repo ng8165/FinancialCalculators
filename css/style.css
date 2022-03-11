@@ -1,198 +1,189 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-body {
-    background-color: #d8cceb;
-    border: 3px solid Black;
-    border-radius: 16px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Roboto', Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    margin-left: auto;
-    margin-right: auto;
-    max-width: calc(100% - 100px);
-    min-width: 256px;
-    padding-top: 8px;
-    padding-bottom: 24px;
-    padding-left: 24px;
-    padding-right: 24px;
+* {
+    font-family: -apple-system, BlinkMacSystemFont, 'Roboto', Arial;
+}
+
+:root {
+    --light-purple: #d8cceb;
+    --med-purple: #be8aff;
+    --dark-purple: #a963ff;
 }
 
 html {
-    background: radial-gradient(circle, #a889d6, #9b74d4 50%, #752ad1 50%, #a889d6);
-    background-size: 8px 8px;
+    background-color: var(--dark-purple);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    min-width: 100%;
 }
+
+body {
+    background-color: var(--light-purple);
+    border: 3px solid Black;
+    border-radius: 16px;
+    padding: 24px;
+    flex-grow: 1;
+    margin: 8px 16px;
+}
+
+/* nav bar */
 
 nav {
-    background-color: #a963ff;
+    position: relative;
+}
+
+nav .navbar {
+    background-color: var(--dark-purple);
     border: 4px solid black;
     border-radius: 10px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Roboto', Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-weight: bold;
-    margin-top: 16px;
-    overflow: hidden;
     user-select: none;
-    -webkit-user-select: none;
+    overflow: hidden;
 }
 
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding-left: 0;
-}
-
-nav li, nav .hamburgermenu {
-    background-color: #a963ff;
-    display: block;
-    padding: 16px 8px;
-    text-decoration: none;
-    text-align: center;
-    color: black;
+nav .main-nav {
+    display: flex;
+    align-items: center;
     position: relative;
-    float: left;
+    margin-top: 16px;
+}
+
+nav .dropdown {
+    z-index: 1;
+    position: absolute;
+    right: 0;
+    margin-top: 5px;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
 }
 
 nav a {
     color: black;
     text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+    padding: 16px 8px;
+    display: block;
+    text-align: center;
 }
 
-nav li:hover {
-    background-color: #be8aff;
+nav a:hover {
+    background-color: var(--med-purple);
     cursor: pointer;
 }
 
-.currentpage, .currentpageshort {
+nav .main-nav a.currentpage {
     text-decoration: underline;
     text-underline-offset: 3px;
     text-decoration-thickness: 2px;
 }
 
-nav .hamburgermenu {
-    margin-top: -3px;
+nav .main-nav a.hamburgermenu {
     display: none;
-    font-family: inherit;
-    user-select: none;
-    -webkit-user-select: none;
+    position: absolute;
+    right: 0;
 }
 
-nav .hamburgermenu:hover {
-    background-color: #be8aff;
-    cursor: pointer;
-}
-
-h1 {
-    text-align: center;
-}
-
-.dropdown {
-    list-style-type: none;
-    overflow: auto;
-    right: 50px;
-    position: fixed;
-    z-index: 1;
-    background-color: #a963ff;
-    border: 4px solid black;
-    border-radius: 10px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Roboto', Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-weight: bold;
-    margin-top: 5px;
-    height: auto;
-    width: 180px;
-    display: none;
-    user-select: none;
-    -webkit-user-select: none;
-}
-
-.dropdown ul {
-    list-style: none;
-    margin: 0;
-    padding-left: 0;
-}
-
-.dropdown li {
-    background-color: #a963ff;
-    display: block;
-    padding: 16px 8px;
-    text-decoration: none;
-    text-align: center;
-    color: black;
-    position: relative;
-}
-
-.dropdown a {
-    color: black;
-    text-decoration: none;
-}
-
-.dropdown li:hover {
-    background-color: #be8aff;
-    cursor: pointer;
-}
-
-nav ul .currentpageshort {
+nav .main-nav a.currentpageshort {
     display: none;
 }
 
 @media screen and (max-width: 640px) {
-    nav ul .navpage {
+    nav .main-nav a.navpage {
         display: none;
-        padding: 0px;
     }
 
-    nav ul .currentpage, nav ul .currentpageshort {
+    nav .main-nav a.currentpageshort {
         display: block;
     }
 
-    nav .hamburgermenu {
-        float: right;
+    nav .main-nav a.hamburgermenu {
         display: block;
     }
 }
 
 @media screen and (min-width: 640px) {
-    .dropdown {
+    nav .dropdown {
         border: 0;
         width: 0;
         height: 0;
     }
 }
 
-input, button {
-    font-family: -apple-system, BlinkMacSystemFont, 'Roboto', Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    border-radius: 5px;
-    border-style: solid;
-    border-color: #595959;
+/* headers */
+
+.site-title {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
 }
-input:hover, input:focus, button:hover, button:focus {
-    border-color: black;
+
+.header {
+    font-size: 1em;
+    font-weight: bold;
 }
+
+/* convenient */
 
 .center {
     text-align: center;
-    display: block;
 }
+
+.caption {
+    padding: 24px 0;
+    font-size: 0.75em;
+}
+
+.link {
+    text-align: center;
+    text-decoration: underline;
+    font-weight: normal;
+}
+
+.link:hover {
+    color: red;
+}
+
+.flexrow {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flexcol {
+    display: flex;
+    flex-direction: column;
+}
+
+/* input and button styling */
+
+input, button {
+    border-radius: 5px;
+    border-style: solid;
+    border-color: grey;
+}
+
+input:hover, button:hover {
+    border-color: black;
+}
+
+/* image */
 
 .image {
     max-width: 100%;
     height: auto;
 }
 
-footer {
-    font-size: 12px;
-    text-align: center;
-}
-
-.link:hover, .link:focus {
-    color: red;
-}
-
-.footerimageleft {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-}
-.footerimageright {
+.footerimage {
     position: fixed;
     bottom: 0;
     right: 0;
     width: 60%;
     max-width: 320px;
+}
+
+footer {
+    font-size: 0.75em;
+    text-align: center;
+    margin-top: 12px;
 }

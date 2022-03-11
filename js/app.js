@@ -10,12 +10,12 @@ if ('serviceWorker' in navigator) {
 }
 
 function openSubNav() {
-    var dropdown = document.getElementById("dropdown");
-    if (dropdown.getAttribute("style") == "display: none;") {
-        dropdown.setAttribute("style", "display: block;");
-    } else {
-        dropdown.setAttribute("style", "display: none;");
-    }
+    const dropdown = document.getElementById("dropdown");
+    
+    if (dropdown.style.display === "none")
+        dropdown.style.display = "flex";
+    else
+        dropdown.style.display = "none";
 }
 
 firebase.auth().onAuthStateChanged(function(user) {
