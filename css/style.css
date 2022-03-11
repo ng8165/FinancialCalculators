@@ -15,7 +15,7 @@ html {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    min-width: 100%;
+    min-width: 300px;
 }
 
 body {
@@ -119,6 +119,13 @@ nav .main-nav a.currentpageshort {
     text-align: center;
 }
 
+.page-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1em;
+}
+
 .header {
     font-size: 1em;
     font-weight: bold;
@@ -154,6 +161,7 @@ nav .main-nav a.currentpageshort {
 .flexcol {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 /* input and button styling */
@@ -168,18 +176,20 @@ input:hover, button:hover {
     border-color: black;
 }
 
-.login {
-    border: 0;
-    background-color: var(--dark-purple);
-    padding: 8px 16px;
+.button {
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: var(--dark-purple);    
+    padding: 4px 8px;
+    margin: 3px 0;
     font-size: 1em;
 }
 
-.login:hover {
+.button:hover {
     background-color: var(--med-purple);
 }
 
-.login a {
+.button a {
     text-decoration: none;
     color: black;
 }
