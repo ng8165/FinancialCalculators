@@ -29,5 +29,7 @@ function addPanda() {
 netlifyIdentity.on("init", user => {
     if (!user) {
         window.location = "index.html";
+    } else {
+        console.log(netlifyIdentity.currentUser().email);
     }
 });

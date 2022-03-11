@@ -164,6 +164,12 @@ nav .main-nav a.currentpageshort {
     align-items: center;
 }
 
+.mono {
+    font-family: monospace;
+    display: inline-block;
+    font-size: 1.25em;
+}
+
 /* input and button styling */
 
 input, button {
@@ -181,7 +187,7 @@ input:hover, button:hover {
     border-radius: 20px;
     background-color: var(--dark-purple);    
     padding: 4px 8px;
-    margin: 3px 0;
+    margin: 6px 0;
     font-size: 1em;
 }
 
