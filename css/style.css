@@ -131,8 +131,9 @@ nav .main-nav a.currentpageshort {
 }
 
 .caption {
-    padding: 24px 0;
+    font-style: italic;
     font-size: 0.75em;
+    margin: 8px 0;
 }
 
 .link {

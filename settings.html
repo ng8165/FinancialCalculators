@@ -13,8 +13,8 @@
         <!--
         <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase.js"></script>
         <script src="js/firebase.js"></script>
-        <script src="js/app.js"></script>
         -->
+        <script src="js/app.js"></script>
     </head>
     <body>
         <header class="site-title">Vivian's Financial Calculators</header>
@@ -34,22 +34,22 @@
             </div>
         </nav>
 
-        <section id="defaultpage">
-            <header style="margin-top: 18px;" class="header">Default Page</header>
+        <section id="defaultpage" style="margin: 8px 0;">
+            <header class="header" style="margin-bottom: 8px;">Default Page</header>
 
-            <p class="flexrow">
+            <div class="flexrow">
                 <input type="radio" id="teycalcDef" name="defSelector"/>
                 <label for="teycalcDef">Tax-Equivalent Yield Calculator</label>
-            </p>
+            </div>
 
-            <p class="flexrow">
+            <div class="flexrow">
                 <input type="radio" id="mortgagecalcDef" name="defSelector"/>
                 <label for="mortgagecalcDef">Mortgage Calculator</label>
-            </p>
+            </div>
         </section>
         
-        <section id="pandashow">
-            <header class="header" style="margin-bottom: 12px;">Show Panda</header>
+        <section id="pandashow" style="margin: 8px 0;">
+            <header class="header" style="margin-bottom: 8px;">Show Panda</header>
 
             <div class="flexrow">
                 <input type="radio" id="pandaYes" name="pandaShow"/>
@@ -62,15 +62,13 @@
             </div>
         </section>
 
-        <em class="caption">Note: Using the Panda may cause some elements to be hidden, especially on smaller screens.</em>
+        <div class="caption">Note: Using the Panda may cause some elements to be hidden, especially on smaller screens.</div>
 
         <button id="save" onclick="saveSettings()">Save</button>
 
         <script src="js/settings.js"></script>
 
-        <footer id="footer">
-            Made by Nelson Gou. See the Github Repository at <a class="link" href="https://github.com/ng8165/FinancialCalculators" target="_blank" rel="noopener">github.com/ng8165/FinancialCalculators</a>.
-        </footer>
+        <footer id="footer">Made by Nelson Gou. Check out the <a class="link" href="https://github.com/ng8165/FinancialCalculators" target="_blank" rel="noopener">code</a> on Github.</footer>
 
         <script>
             if (window.localStorage.getItem("pandaShow") === "true") {

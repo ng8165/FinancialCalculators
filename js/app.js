@@ -18,6 +18,7 @@ function openSubNav() {
         dropdown.style.display = "none";
 }
 
+/*
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         // User is signed in.
@@ -30,3 +31,4 @@ firebase.auth().onAuthStateChanged(function(user) {
 }, function(error) {
     console.log(error);
 });
+*/
