@@ -2,42 +2,30 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="robots" content="noindex, nofollow">
         <meta name="Description" content="Financial Calculators made by Nelson Gou">
         <title>Financial Calculators</title>
         <link rel="manifest" href="manifest.json">
-        <link rel="icon" type="ico" href="images/favicon.png">
+        <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
         <link rel="apple-touch-icon" href="images/icon-192.png">
-        <script src="js/app.js"></script>
-        <!--<script src="js/firebase.js"></script>-->
         <link rel="stylesheet" href="css/style.css">
         <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-        <script src="js/netlify.js"></script>
-        <script>
-            function openDefaultPage() {
-                const localStorage = window.localStorage;
-            
-                if (localStorage.getItem("defaultPage") != null && localStorage.getItem("pandaShow") != null) {
-                    window.location = localStorage.getItem("defaultPage") + ".html";
-                } else {
-                    localStorage.setItem("defaultPage", "mortgagecalc");
-                    localStorage.setItem("pandaShow", "true");
-                    window.location = localStorage.getItem("defaultPage") + ".html";
-                }
-            }
-
-            if (!location.href.includes("#")) {
-                openDefaultPage();
-            }
-        </script>
+        <script src="js/index.js"></script>
     </head>
     <body>
         <header class="site-title">Vivian's Financial Calculators</header>
 
-        <p>Welcome! Click the button below to visit the calculators!</p>
+        <section class="flexcol" style="align-items: center;">
+            <p>If you haven't logged in, please</p>
+            <button class="login" data-netlify-identity-button></button>
+        </section>
 
-        <button onclick="openDefaultPage()">Open the Calculator</button>
+        <section class="flexcol" style="align-items: center;">
+            <p style="margin-top: 32px;">If you have logged in, welcome!</p>
+            <button class="login" onclick="openDefaultPage()">Open the Calculator</button>
+        </section>
 
         <footer id="footer">Made by Nelson Gou. Check out the <a class="link" href="https://github.com/ng8165/FinancialCalculators" target="_blank" rel="noopener">code</a> on Github.</footer>
     </body>

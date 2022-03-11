@@ -20,12 +20,12 @@
       "purpose": "maskable"
     }
   ],
-  "start_url": "/FinancialCalculators/",
-  "background_color": "#a889d6",
+  "start_url": "/",
+  "background_color": "#a963ff",
   "display": "standalone",
-  "scope": "/FinancialCalculators/",
+  "scope": "/",
   "orientation": "landscape",
-  "theme_color": "#a889d6",
+  "theme_color": "#a963ff",
   "categories": ["utilities", "finance"],
-  "description": "Financial Calculators made by Nelson Gou"
+  "description": "Financial Calculators offers a Tax-Equivalent Yield Calculator and a Mortgage Calculator online."
 }
