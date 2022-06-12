@@ -4,37 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login | Vivian's Financial Calculators</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="shortcut icon" href="img/logo.png" type="image/png">
+    <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script>
-        const config = {
-            apiKey: "AIzaSyDtjbkA7fZvD4r2E6bVpljFHH9ZdbPRSOM",
-            authDomain: "financialcalculators888.firebaseapp.com",
-            projectId: "financialcalculators888",
-            storageBucket: "financialcalculators888.appspot.com",
-            messagingSenderId: "866944710448",
-            appId: "1:866944710448:web:9001878fb7f327f44a3af5"
-        };
-
-        firebase.initializeApp(config);
-    </script>
+    <script src="js/firebase.js"></script>
+    <!-- Firebase UI for Auth -->
     <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css">
-    <script>
-        const ui = new firebaseui.auth.AuthUI(firebase.auth());
-        ui.start('#firebaseui-auth-container', {
-            signInSuccessUrl: 'index.html',
-            signInOptions: [{
-                provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
-                disableSignUp: {
-                    status: true
-                }
-            }]
-        });
-    </script>
+    <script src="js/firebase-ui.js"></script>
 </head>
 <body>
-    <div id="firebaseui-auth-container"></div>
+    <nav>
+        <a href="/" class="title">
+            <img src="img/logo.png" alt="Financial Calculators Logo" class="logo">
+            <span class="name">Vivian's Financial Calculators</span>
+        </a>
+
+        <button class="menu" id="menu"><span class="material-symbols-outlined">menu</span></button>
+
+        <div class="pages" id="navpages">
+            <a href="/teycalc.html">Tax-Equivalent Yield</a>
+            <a href="/mortgagecalc.html">Mortgage</a>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div id="firebaseui-auth-container" class="firebaseui"></div>
+        <button id="demo">Get Limited Access</button>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>
