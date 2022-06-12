@@ -11,14 +11,12 @@ if ('serviceWorker' in navigator) {
 }
 */
 
-function openSubNav() {
-    const dropdown = document.getElementById("dropdown");
-    
-    if (dropdown.style.display === "none")
-        dropdown.style.display = "flex";
-    else
-        dropdown.style.display = "none";
-}
+const menu = document.getElementById("menu");
+const navPages = document.getElementById("navpages");
+
+menu.addEventListener("click", function() {
+    navPages.classList.toggle("show");
+});
 
 function addPanda() {
     if (window.localStorage.getItem("pandaShow") === "true") {
