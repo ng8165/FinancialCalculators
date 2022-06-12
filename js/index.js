@@ -9,9 +9,3 @@ function openDefaultPage() {
         window.location = localStorage.getItem("defaultPage") + ".html";
     }
 }
-
-netlifyIdentity.on("init", user => {
-    if (user && !location.href.includes("#")) {
-        openDefaultPage();
-    }
-});

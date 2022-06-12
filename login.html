@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script>
+        const config = {
+            apiKey: "AIzaSyDtjbkA7fZvD4r2E6bVpljFHH9ZdbPRSOM",
+            authDomain: "financialcalculators888.firebaseapp.com",
+            projectId: "financialcalculators888",
+            storageBucket: "financialcalculators888.appspot.com",
+            messagingSenderId: "866944710448",
+            appId: "1:866944710448:web:9001878fb7f327f44a3af5"
+        };
+
+        firebase.initializeApp(config);
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css">
+    <script>
+        const ui = new firebaseui.auth.AuthUI(firebase.auth());
+        ui.start('#firebaseui-auth-container', {
+            signInSuccessUrl: 'index.html',
+            signInOptions: [{
+                provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+                disableSignUp: {
+                    status: true
+                }
+            }]
+        });
+    </script>
+</head>
+<body>
+    <div id="firebaseui-auth-container"></div>
+</body>
+</html>
