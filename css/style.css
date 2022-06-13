@@ -167,6 +167,7 @@ button, input[type="submit"], input[type="reset"] {
     border: 2px solid black;
     border-radius: 8px;
     cursor: pointer;
+    color: black;
 }
 
 button:hover, input[type="submit"]:hover, input[type="reset"]:hover {
