@@ -1,10 +1,10 @@
 if (localStorage.getItem("defaultPage") == null)
-    localStorage.setItem("defaultPage", "mortgagecalc");
+    localStorage.setItem("defaultPage", "mortgage");
 
 if (localStorage.getItem("pandaShow") == null)
     localStorage.setItem("pandaShow", "false");
 
-if (localStorage.getItem("defaultPage") === "teycalc")
+if (localStorage.getItem("defaultPage") === "tey")
     document.getElementById("teycalcDef").checked = true;
 else
     document.getElementById("mortgagecalcDef").checked = true;
@@ -20,9 +20,9 @@ form.addEventListener("submit", function(event) {
     event.preventDefault();
 
     if (document.getElementById("teycalcDef").checked) {
-        localStorage.setItem("defaultPage", "teycalc");
+        localStorage.setItem("defaultPage", "tey");
     } else {
-        localStorage.setItem("defaultPage", "mortgagecalc");
+        localStorage.setItem("defaultPage", "mortgage");
     }
 
     if (document.getElementById("pandaYes").checked) {

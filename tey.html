@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <title>Mortgage Calculator | Vivian's Financial Calculators</title>
+    <title>Tax-Equivalent Yield Calculator | Vivian's Financial Calculators</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/mortgagecalc.css">
+    <link rel="stylesheet" href="css/tey.css">
     <link rel="shortcut icon" href="img/logo.png" type="image/png">
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
@@ -24,29 +24,34 @@
         <button class="menu" id="menu"><span class="material-symbols-outlined">menu</span></button>
 
         <div class="pages" id="navpages">
-            <a href="/teycalc.html">Tax-Equivalent Yield</a>
-            <a class="current" href="/mortgagecalc.html">Mortgage</a>
+            <a class="current" href="/tey.html">Tax-Equivalent Yield</a>
+            <a href="/mortgage.html">Mortgage</a>
             <a href="/settings.html">Settings</a>
         </div>
     </nav>
 
     <div class="content">
-        <h1>Mortgage Calculator</h1>
+        <h1>Tax-Equivalent Yield Calculator</h1>
 
         <form>
             <div>
-                <label for="mortgageAmount">Mortgage Amount</label>:
-                $<input type="number" id="mortgageAmount" size="6" value="100000" min="0" required>
+                <label for="taxExempt">Tax-Exempt Yield</label>:
+                <input type="number" id="taxExempt" value="3" min="0" step="0.01" required>%
             </div>
 
             <div>
-                <label for="interestRate">Interest Rate</label>:
-                <input type="number" id="interestRate" value="3.92" min="0" step="0.01" required>%
+                <label for="shortCapGain">Short Term Capital Gain</label>:
+                <input type="number" id="shortCapGain" value="2" min="0" step="0.01" required>%
             </div>
 
             <div>
-                <label for="mortgagePeriod">Mortgage Period</label>:
-                <input type="number" id="mortgagePeriod" value="30" min="0" required> years
+                <label for="fedBracket">Federal Marginal Tax Bracket</label>:
+                <input type="number" id="fedBracket" value="35" min="0" step="0.01" required>%
+            </div>
+
+            <div>
+                <label for="stateBracket">State Marginal Tax Bracket</label>:
+                <input type="number" id="stateBracket" value="9.3" min="0" step="0.01" required>%
             </div>
 
             <input type="submit" value="Submit">
@@ -54,14 +59,23 @@
         </form>
 
         <div class="result hide">
-            <p id="totalCost"></p>
-            <p id="monthlyPayments"></p>
+            <p id="summary"></p>
+
+            <ul>
+                <li id="taxExemptResult"></li>
+                <li id="shortCapGainResult"></li>
+                <li id="totalTaxEquivalentYield"></li>
+                <li id="fedStateTaxExempt"></li>
+            </ul>
+            
+            <div class="image" id="chart"></div>
         </div>
     </div>
 
     <footer>Made by Nelson Gou. Check out the <a class="link" href="https://github.com/ng8165/FinancialCalculators" target="_blank" rel="noopener">code</a> on Github.</footer>
 
     <script src="js/app.js"></script>
-    <script src="js/mortgagecalc.js"></script>
-</body>
+    <script src="js/tey.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    </body>
 </html>
