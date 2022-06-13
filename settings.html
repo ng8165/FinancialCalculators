@@ -1,67 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="Description" content="Settings for Vivian's Financial Calculators">
-        <title>Settings</title>
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-        <script src="js/app.js"></script>
-    </head>
-    <body onload="addPanda()">
-        <header class="site-title">Vivian's Financial Calculators</header>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>Settings | Vivian's Financial Calculators</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/settings.css">
+    <link rel="shortcut icon" href="img/logo.png" type="image/png">
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="js/firebase.js"></script>
+</head>
+<body>
+    <nav>
+        <a href="/" class="title">
+            <img src="img/logo.png" alt="Financial Calculators Logo" class="logo">
+            <span class="name">Vivian's Financial Calculators</span>
+        </a>
 
-        <nav>
-            <div class="navbar main-nav">
-                <a href="teycalc.html" class="navpage">Tax-Equivalent Yield Calculator</a>
-                <a href="mortgagecalc.html" class="navpage">Mortgage Calculator</a>
-                <a href="settings.html" class="currentpage">Settings</a>
+        <button class="menu" id="menu"><span class="material-symbols-outlined">menu</span></button>
 
-                <a class="hamburgermenu" id="hamburgermenu" onclick="openSubNav()">☰</a>
-            </div>
+        <div class="pages" id="navpages">
+            <a href="/teycalc.html">Tax-Equivalent Yield</a>
+            <a href="/mortgagecalc.html">Mortgage</a>
+            <a class="current" href="/settings.html">Settings</a>
+        </div>
+    </nav>
 
-            <div id="dropdown" class="navbar dropdown" style="display: none;">
-                <a href="teycalc.html">TEY Calculator</a>
-                <a href="mortgagecalc.html">Mortgage Calculator</a>
-            </div>
-        </nav>
+    <div class="content">
+        <h1>Settings</h1>
 
-        <section id="defaultpage" style="margin: 16px 0;">
-            <header class="header" style="margin-bottom: 8px;">Default Page</header>
+        <form>
+            <h3>Default Page</h3>
 
-            <div class="flexrow" style="margin: 4px 0;">
+            <div>
                 <input type="radio" id="teycalcDef" name="defSelector"/>
                 <label for="teycalcDef">Tax-Equivalent Yield Calculator</label>
             </div>
 
-            <div class="flexrow">
+            <div>
                 <input type="radio" id="mortgagecalcDef" name="defSelector"/>
                 <label for="mortgagecalcDef">Mortgage Calculator</label>
             </div>
-        </section>
-        
-        <section id="pandashow" style="margin: 16px 0;">
-            <header class="header" style="margin-bottom: 8px;">Show Panda</header>
 
-            <div class="flexrow" style="margin: 4px 0;">
+            <h3>Show Panda</h3>
+
+            <div>
                 <input type="radio" id="pandaYes" name="pandaShow"/>
                 <label for="pandaYes">Yes</label>
             </div>
 
-            <div class="flexrow">
+            <div>
                 <input type="radio" id="pandaNo" name="pandaShow"/>
                 <label for="pandaNo">No</label>
             </div>
-        </section>
 
-        <div class="caption">Note: Using the Panda may cause some elements to be hidden, especially on smaller screens.</div>
+            <div class="caption">Note: Using the Panda may cause some elements to be hidden, especially on smaller screens.</div>
 
-        <button id="save" onclick="saveSettings()">Save</button>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    
+    <footer id="footer">Made by Nelson Gou. Check out the <a class="link" href="https://github.com/ng8165/FinancialCalculators" target="_blank" rel="noopener">code</a> on Github.</footer>
 
-        <script src="js/settings.js"></script>
-
-        <footer id="footer">Made by Nelson Gou. Check out the <a class="link" href="https://github.com/ng8165/FinancialCalculators" target="_blank" rel="noopener">code</a> on Github.</footer>
-    </body>
+    <script src="js/app.js"></script>
+    <script src="js/settings.js"></script>
+</body>
 </html>

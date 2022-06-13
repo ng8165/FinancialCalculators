@@ -190,7 +190,7 @@ form > * {
     margin: 10px 0;
 }
 
-form div input {
+form div input[type="number"] {
     width: 10ch;
     margin: 0 2px;
 }
@@ -203,6 +203,10 @@ input, textarea {
     font-family: inherit;
     border-color: black;
     border-radius: 4px;
+}
+
+input[type="radio"], label {
+    cursor: pointer;
 }
 
 /* footer */

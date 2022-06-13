@@ -1,26 +1,24 @@
-const localStorage = window.localStorage;
-
-if (localStorage.getItem("defaultPage") == null) {
+if (localStorage.getItem("defaultPage") == null)
     localStorage.setItem("defaultPage", "mortgagecalc");
-}
 
-if (localStorage.getItem("pandaShow") == null) {
+if (localStorage.getItem("pandaShow") == null)
     localStorage.setItem("pandaShow", "true");
-}
 
-if (localStorage.getItem("defaultPage") === "teycalc") {
+if (localStorage.getItem("defaultPage") === "teycalc")
     document.getElementById("teycalcDef").checked = true;
-} else {
+else
     document.getElementById("mortgagecalcDef").checked = true;
-}
 
-if (localStorage.getItem("pandaShow") === "true") {
+if (localStorage.getItem("pandaShow") === "true")
     document.getElementById("pandaYes").checked = true;
-} else {
+else
     document.getElementById("pandaNo").checked = true;
-}
 
-function saveSettings() {
+const form = document.querySelector("form");
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
     if (document.getElementById("teycalcDef").checked) {
         localStorage.setItem("defaultPage", "teycalc");
     } else {
@@ -34,4 +32,4 @@ function saveSettings() {
     }
 
     location.reload();
-}
+});
