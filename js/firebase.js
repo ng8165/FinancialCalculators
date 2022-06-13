@@ -8,3 +8,13 @@ const config = {
 };
 
 firebase.initializeApp(config);
+
+const auth = firebase.auth();
+
+if (!document.head.hasAttribute("login")) {
+    auth.onAuthStateChanged(function(user) {
+        if (localStorage.getItem("demo") !== "true" && user == null) {
+            window.location.href = "login.html";
+        }
+    });
+}

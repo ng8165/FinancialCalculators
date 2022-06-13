@@ -17,6 +17,7 @@ html {
 }
 
 body {
+    min-width: 200px;
     width: 100%;
     min-height: 100%;
     background-color: var(--light-purple);
@@ -131,7 +132,7 @@ nav .pages .current {
         border-radius: 0;
         padding: 12px 8px;
         margin: 0;
-        width: 150px;
+        width: 125px;
         text-align: center;
     }
 
@@ -161,4 +162,15 @@ button {
 
 button:hover {
     background-color: var(--med-purple);
+}
+
+/* panda */
+
+.panda {
+    max-width: 100%;
+    height: auto;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
 }

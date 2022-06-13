@@ -1,4 +1,5 @@
-const localStorage = window.localStorage;
+localStorage.setItem("demo", "false");
+
 const demo = document.getElementById("demo");
 
 demo.addEventListener("click", function() {

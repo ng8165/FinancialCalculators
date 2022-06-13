@@ -1,26 +1,17 @@
-// register service worker
-/*
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-            console.log('[ServiceWorker] Registration Successful! Scope: ', registration.scope);
-        }, function(err) {
-            console.log('[ServiceWorker] Registration Failed... Error: ', err);
-        });
-    });
-}
-*/
-
 const menu = document.getElementById("menu");
+const menuIcon = menu.firstChild;
 const navPages = document.getElementById("navpages");
+const localStorage = window.localStorage;
 
 menu.addEventListener("click", function() {
     navPages.classList.toggle("show");
+    menuIcon.innerHTML = menuIcon.innerHTML === "menu" ? "close" : "menu";
 });
 
-function addPanda() {
-    if (window.localStorage.getItem("pandaShow") === "true") {
-        document.getElementById("footer").innerHTML += '<img class="footerimage" id="footerimg" src="images/panda.png" alt="Panda Footer Image">';
-    }
+if (localStorage.getItem("pandaShow") === "true") {
+    const img = document.createElement("img");
+    img.classList.add("panda");
+    img.src = "img/panda.png";
+    img.alt = "Panda Image";
+    document.body.append(img);
 }
-
