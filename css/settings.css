@@ -1,3 +1,7 @@
+form > div:not(.caption) {
+    margin: 0;
+}
+
 form .caption {
     font-size: 0.75rem;
 }
