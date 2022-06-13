@@ -1,0 +1,11 @@
+form > * {
+    margin: 10px 0;
+}
+
+form div input {
+    width: 10ch;
+}
+
+.result {
+    display: none;
+}
