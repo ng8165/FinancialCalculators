@@ -17,5 +17,5 @@ form.addEventListener("submit", function(event) {
 
     totalCostResult.innerHTML = "Total Cost: $" + Math.round(totalCost).toLocaleString();
     monthlyPaymentsResult.innerHTML = "Monthly Payments: $" + Math.round(monthlyPayments).toLocaleString();
-    result.classList.remove("result");
+    result.classList.remove("hide");
 });
