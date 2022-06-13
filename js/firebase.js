@@ -13,6 +13,11 @@ const auth = firebase.auth();
 
 if (!document.head.hasAttribute("login")) {
     auth.onAuthStateChanged(function(user) {
+        if (document.head.hasAttribute("restricted") && localStorage.getItem("demo") === "true") {
+            alert("This page is restricted.")
+            window.location.href = "login.html";
+        }
+            
         if (localStorage.getItem("demo") !== "true" && user == null) {
             window.location.href = "login.html";
         }
