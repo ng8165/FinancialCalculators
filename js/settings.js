@@ -2,7 +2,7 @@ if (localStorage.getItem("defaultPage") == null)
     localStorage.setItem("defaultPage", "mortgagecalc");
 
 if (localStorage.getItem("pandaShow") == null)
-    localStorage.setItem("pandaShow", "true");
+    localStorage.setItem("pandaShow", "false");
 
 if (localStorage.getItem("defaultPage") === "teycalc")
     document.getElementById("teycalcDef").checked = true;
