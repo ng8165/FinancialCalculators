@@ -1,22 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="Description" content="404 for Vivian's Financial Calculators">
-        <title>Site Not Found</title>
-        <link type="text/css" rel="stylesheet" href="css/style.css"/>
-        <link rel="icon" type="ico" href="/images/favicon.png">
-    </head>
-    <body>
-        <header class="site-title">Vivian's Financial Calculators</header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Site Not Found | Vivian's Financial Calculators</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/img/logo.png" type="image/png">
+</head>
+<body>
+    <nav>
+        <a href="/" class="title">
+            <img src="/img/logo.png" alt="Financial Calculators Logo" class="logo">
+            <span class="name">Vivian's Financial Calculators</span>
+        </a>
 
-        <section class="flexcol">
-            <div class="page-title" style="font-size: 2em;">404</div>
-            <h2 style="font-weight: 500;">Site Not Found</h2>
-            <p>Uh Oh! The requested page was not found on this server.</p>
+        <button class="menu" id="menu"><span class="material-symbols-outlined">menu</span></button>
 
-            <button class="button"><a href="index.html">&larr; Home</a></button>
-        </section>
-    </body>
+        <div class="pages" id="navpages">
+            <a href="/tey.html">Tax-Equivalent Yield</a>
+            <a href="/mortgage.html">Mortgage</a>
+            <a href="/settings.html">Settings</a>
+        </div>
+    </nav>
+
+    <div class="content">
+        <h1>404</h1>
+        <h2>Site Not Found</h2>
+        <p>Uh Oh! The requested page was not found on this server.</p>
+        <a href="index.html"><button tabindex="-1">Go Home</button></a>
+    </div>
+
+    <footer id="footer">Made by Nelson Gou. Check out the <a class="link" href="https://github.com/ng8165/FinancialCalculators" target="_blank" rel="noopener">code</a> on Github.</footer>
+
+    <script src="js/app.js"></script>
+</body>
 </html>
