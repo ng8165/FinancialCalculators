@@ -119,7 +119,7 @@ nav .pages .current {
     text-underline-offset: 3px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 580px) {
     nav .pages {
         display: none;
         position: absolute;
@@ -157,6 +157,12 @@ nav .pages .current {
 }
 
 @media screen and (max-width: 460px) {
+    nav .title .name {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 370px) {
     nav .title .name {
         display: none;
     }
