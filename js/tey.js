@@ -105,3 +105,7 @@ function generateChart(grossReturn, totalTaxEquivalentYield, fedStateTaxExemptRe
         }
     });
 }
+
+form.addEventListener("reset", function() {
+    result.classList.add("hide");
+});

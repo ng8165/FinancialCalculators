@@ -19,3 +19,7 @@ form.addEventListener("submit", function(event) {
     monthlyPaymentsResult.innerHTML = "Monthly Payments: $" + Math.round(monthlyPayments).toLocaleString();
     result.classList.remove("hide");
 });
+
+form.addEventListener("reset", function() {
+    result.classList.add("hide");
+});

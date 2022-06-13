@@ -17,7 +17,7 @@ html {
 }
 
 body {
-    min-width: 200px;
+    min-width: 225px;
     width: 100%;
     min-height: 100%;
     background-color: var(--light-purple);
@@ -62,6 +62,7 @@ nav {
     align-items: center;
     padding: 5px 20px;
     user-select: none;
+    z-index: 10000;
 }
 
 nav .title {
@@ -143,6 +144,10 @@ nav .pages .current {
         margin: 0;
         width: 125px;
         text-align: center;
+    }
+
+    nav .pages .current {
+        text-underline-offset: 1px;
     }
 
     nav .menu {
