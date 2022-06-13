@@ -1,0 +1,19 @@
+.result {
+    max-width: 100%;
+}
+
+.result li {
+    text-align: left;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 2/1;
+}
+
+.image canvas {
+    width: 100%;
+    height: 100%;
+}

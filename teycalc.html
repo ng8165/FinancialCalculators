@@ -1,61 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="Description" content="Tax-Equivalent Yield Calculator for Vivian's Financial Calculators">
-        <title>Tax-Equivalent Yield Calculator</title>
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
-        <script src="js/app.js"></script>
-        <script src="js/teycalc.js"></script>
-    </head>
-    <body onload="addPanda()">
-        <header class="site-title">Vivian's Financial Calculators</header>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>Tax-Equivalent Yield Calculator | Vivian's Financial Calculators</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/teycalc.css">
+    <link rel="shortcut icon" href="img/logo.png" type="image/png">
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="js/firebase.js"></script>
+</head>
+<body>
+    <nav>
+        <a href="/" class="title">
+            <img src="img/logo.png" alt="Financial Calculators Logo" class="logo">
+            <span class="name">Vivian's Financial Calculators</span>
+        </a>
 
-        <nav>
-            <div class="navbar main-nav">
-                <a href="teycalc.html" style="text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 2px;" class="navpage">Tax-Equivalent Yield Calculator</a>
-                <a href="teycalc.html" class="currentpageshort">TEY Calculator</a>
-                <a href="mortgagecalc.html" class="navpage">Mortgage Calculator</a>
-                <a href="settings.html" class="navpage">Settings</a>
+        <button class="menu" id="menu"><span class="material-symbols-outlined">menu</span></button>
 
-                <a class="hamburgermenu" id="hamburgermenu" onclick="openSubNav()">☰</a>
-            </div>
+        <div class="pages" id="navpages">
+            <a class="current" href="/teycalc.html">Tax-Equivalent Yield</a>
+            <a href="/mortgagecalc.html">Mortgage</a>
+            <a href="/settings.html">Settings</a>
+        </div>
+    </nav>
 
-            <div id="dropdown" class="navbar dropdown" style="display: none;">
-                <a href="mortgagecalc.html">Mortgage Calculator</a>
-                <a href="settings.html">Settings</a>
-            </div>
-        </nav>
+    <div class="content">
+        <h1>Tax-Equivalent Yield Calculator</h1>
 
-        <section id="input">
-            <p>
+        <form>
+            <div>
                 <label for="taxExempt">Tax-Exempt Yield</label>:
-                <input type="text" id="taxExempt" size="5" value="3%"/>
-            </p>
+                <input type="number" id="taxExempt" value="3" min="0" step="0.01" required>%
+            </div>
 
-            <p>
+            <div>
                 <label for="shortCapGain">Short Term Capital Gain</label>:
-                <input type="text" id="shortCapGain" size="5" value="2%"/>
-            </p>
+                <input type="number" id="shortCapGain" value="2" min="0" step="0.01" required>%
+            </div>
 
-            <p>
+            <div>
                 <label for="fedBracket">Federal Marginal Tax Bracket</label>:
-                <input type="text" id="fedBracket" size="5" value="35%"/>
-            </p>
+                <input type="number" id="fedBracket" value="35" min="0" step="0.01" required>%
+            </div>
 
-            <p>
+            <div>
                 <label for="stateBracket">State Marginal Tax Bracket</label>:
-                <input type="text" id="stateBracket" size="5" value="9.3%"/>
-            </p>
+                <input type="number" id="stateBracket" value="9.3" min="0" step="0.01" required>%
+            </div>
 
-            <button id="submit" onclick="generateResults()">Submit</button>
-        </section>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </form>
 
-        <section id="result" style="display: none;">
+        <div class="result hide">
             <p id="summary"></p>
 
             <ul>
@@ -64,16 +67,15 @@
                 <li id="totalTaxEquivalentYield"></li>
                 <li id="fedStateTaxExempt"></li>
             </ul>
-        </section>
+            
+            <div class="image" id="chart"></div>
+        </div>
+    </div>
 
-        <div class="image" id="chart" style="display: none;"></div>
+    <footer>Made by Nelson Gou. Check out the <a class="link" href="https://github.com/ng8165/FinancialCalculators" target="_blank" rel="noopener">code</a> on Github.</footer>
 
-        <footer id="footer">Made by Nelson Gou. Check out the <a class="link" href="https://github.com/ng8165/FinancialCalculators" target="_blank" rel="noopener">code</a> on Github.</footer>
-
-        <script>
-            if (window.localStorage.getItem("pandaShow") === "true") {
-                document.getElementById("footer").innerHTML += '<img class="footerimage" id="footerimg" src="images/pandas/panda-drawing-1.png" alt="Panda Footer Image">';
-            }
-        </script>
+    <script src="js/app.js"></script>
+    <script src="js/teycalc.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
     </body>
 </html>

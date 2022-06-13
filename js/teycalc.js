@@ -1,85 +1,58 @@
-document.addEventListener("keyup", function(event) {
-    // if enter key is pressed (same as pressing submit), generate results
-    if (event.code == "Enter") {
-        generateResults();
-    }
-});
+const form = document.querySelector("form");
+const result = document.querySelector(".result");
 
-function parseNumber(percentage) {
-    // parse the number into a float
-    if (percentage.charAt(percentage.length-1) == '%') {
-        // remove % if necessary
-        return parseFloat(percentage.substring(0, percentage.length-1));
-    } else {
-        return parseFloat(percentage);
-    }
-}
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
 
-function resetInputs() {
-    document.getElementById("taxExempt").value = "3%";
-    document.getElementById("fedBracket").value = "35%";
-    document.getElementById("stateBracket").value = "9.3%";
-}
+    // inputs
+    let taxExempt = parseFloat(document.getElementById("taxExempt").value);
+    let shortCapGain = parseFloat(document.getElementById("shortCapGain").value);
+    let fedBracket = parseFloat(document.getElementById("fedBracket").value);
+    let stateBracket = parseFloat(document.getElementById("stateBracket").value);
 
-function generateResults() {
-    var taxExempt = document.getElementById("taxExempt").value;
-    var shortCapGain = document.getElementById("shortCapGain").value;
-    var fedBracket = document.getElementById("fedBracket").value;
-    var stateBracket = document.getElementById("stateBracket").value;
-
-    // check if any fields are empty
-    if (taxExempt == "" || shortCapGain == "" || fedBracket == "" || stateBracket == "") {
-        alert("Please enter all fields.");
-        return;
-    }
-
-    // remove % character and parse into a number
-    taxExempt = parseNumber(taxExempt);
-    shortCapGain = parseNumber(shortCapGain);
-    var fedTaxExempt = parseNumber(fedBracket);
-    var fedStateTaxExempt = parseNumber(stateBracket);
-
-    // check if any parses failed (returns NaN if failed)
-    if (isNaN(taxExempt) || isNaN(shortCapGain) || isNaN(fedTaxExempt) || isNaN(fedStateTaxExempt)) {
-        alert("Please remove any letters or special characters in the fields.");
-        resetInputs();
-        return;
-    }
+    // results
+    const taxExemptResult = document.getElementById("taxExemptResult");
+    const shortCapGainResult = document.getElementById("shortCapGainResult");
+    const totalTaxEquivalentYieldResult = document.getElementById("totalTaxEquivalentYield");
+    const fedStateTaxExemptResult = document.getElementById("fedStateTaxExempt");
+    const summary = document.getElementById("summary");
 
     // calculate new results and add them to web page
-    document.getElementById("taxExemptResult").innerHTML = "Tax Exempt: " + taxExempt.toFixed(2) + "%";
+    taxExemptResult.innerHTML = "Tax Exempt: " + taxExempt.toFixed(2) + "%";
 
-    var grossReturn = taxExempt + shortCapGain;
-    document.getElementById("shortCapGainResult").innerHTML = "Short Term Capital Gain: " + shortCapGain.toFixed(2) + "%";
+    let grossReturn = taxExempt + shortCapGain;
+    shortCapGainResult.innerHTML = "Short Term Capital Gain: " + shortCapGain.toFixed(2) + "%";
 
-    fedTaxExempt = taxExempt*100/(100-fedTaxExempt);
-    var totalTaxEquivalentYield = fedTaxExempt + shortCapGain;
-    document.getElementById("totalTaxEquivalentYield").innerHTML = "Total Tax Equivalent Yield: " + fedTaxExempt.toFixed(2) + "% + " + shortCapGain.toFixed(2) + "% = " + totalTaxEquivalentYield.toFixed(2) + "%";
+    fedBracket = taxExempt*100/(100-fedBracket);
+    let totalTaxEquivalentYield = fedBracket + shortCapGain;
+    totalTaxEquivalentYieldResult.innerHTML = "Total Tax Equivalent Yield: " + fedBracket.toFixed(2) + "% + " + shortCapGain.toFixed(2) + "% = " + totalTaxEquivalentYield.toFixed(2) + "%";
 
-    fedStateTaxExempt = fedTaxExempt*100/(100-fedStateTaxExempt);
-    var fedStateTaxExemptResult = fedStateTaxExempt + shortCapGain;
-    document.getElementById("fedStateTaxExempt").innerHTML = "Federal & State Tax Exempt: " + fedStateTaxExempt.toFixed(2) + "% + " + shortCapGain.toFixed(2) + "% = " + fedStateTaxExemptResult.toFixed(2) + "%";
+    stateBracket = fedBracket*100/(100-stateBracket);
+    let fedStateTaxExempt = stateBracket + shortCapGain;
+    console.log(typeof fedStateTaxExempt);
+    fedStateTaxExemptResult.innerHTML = "Federal & State Tax Exempt: " + stateBracket.toFixed(2) + "% + " + shortCapGain.toFixed(2) + "% = " + fedStateTaxExempt.toFixed(2) + "%";
 
-    document.getElementById("summary").innerHTML = "A " + taxExempt.toFixed(2) + "% tax-exempt return is equivalent to a tax-equivalent yield of " + fedStateTaxExempt.toFixed(2) + "%.";
+    summary.innerHTML = "A " + taxExempt.toFixed(2) + "% tax-exempt return is equivalent to a tax-equivalent yield of " + fedStateTaxExempt.toFixed(2) + "%.";
 
-    document.getElementById("result").setAttribute("style", "visibility: visible");
+    result.classList.remove("hide");
 
     // generate the chart
-    generateChart(grossReturn.toFixed(2), totalTaxEquivalentYield.toFixed(2), fedStateTaxExemptResult.toFixed(2));
-}
+    generateChart(grossReturn.toFixed(2), totalTaxEquivalentYield.toFixed(2), fedStateTaxExempt.toFixed(2));
+});
 
 function generateChart(grossReturn, totalTaxEquivalentYield, fedStateTaxExemptResult) {
-    Chart.defaults.global.defaultFontFamily = '-apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
+    Chart.defaults.global.defaultFontFamily = '-apple-system, BlinkMacSystemFont, "Roboto", sans-serif';
     Chart.defaults.global.defaultFontColor = "#000000";
 
-    document.getElementById("chart").setAttribute("style", "visibility:visible");
-    document.getElementById("chart").innerHTML = '<canvas id="myChart"></canvas>'; // reset canvas for every generation so graphs don't overlap
+    const chartCont = document.getElementById("chart");
 
-    let myChart = document.getElementById("myChart").getContext("2d");
-    myChart.canvas.parentNode.style.width = '700px';
-    myChart.canvas.parentNode.style.height = '350px';
+    // reset canvas for every generation so graphs don't overlap
+    chartCont.innerHTML = "";
+    const canvas = document.createElement("canvas");
+    chartCont.append(canvas);
 
-    new Chart(myChart, {
+    const ctx = canvas.getContext("2d");
+    const chart = new Chart(ctx, {
         type: "bar",
         data: {
             labels: ["Gross Return", "Total Tax Equivalent Yield", "Federal & State Tax Exempt"],

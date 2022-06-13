@@ -34,6 +34,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
+    margin: 10px;
 }
 
 .content > * {
@@ -177,13 +178,26 @@ button:hover, input[type="submit"]:hover, input[type="reset"]:hover {
 .panda {
     max-width: 100%;
     height: auto;
-    position: absolute;
+    position: fixed;
     right: 0;
     bottom: 0;
     z-index: -1;
 }
 
-/* inputs */
+/* form */
+
+form > * {
+    margin: 10px 0;
+}
+
+form div input {
+    width: 10ch;
+    margin: 0 2px;
+}
+
+.result.hide {
+    display: none;
+}
 
 input, textarea {
     font-family: inherit;
