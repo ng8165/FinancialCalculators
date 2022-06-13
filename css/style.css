@@ -199,7 +199,6 @@ form > * {
 
 form div input[type="number"] {
     width: 10ch;
-    margin: 0 2px;
 }
 
 .result.hide {
@@ -214,6 +213,14 @@ input, textarea {
 
 input[type="radio"], label {
     cursor: pointer;
+}
+
+.input-unit {
+    display: inline-block;
+}
+
+.input-unit input[type="number"] {
+    margin: 0 2px;
 }
 
 /* footer */
